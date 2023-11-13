@@ -1,0 +1,322 @@
+<html>
+  <body>
+    <style>
+      .container {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgb(54, 53, 53);
+        background-color: #fff;
+      }
+      .btn {
+        background-color: rgb(0, 3, 75);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+      .btn:hover {
+        background-color: #000;
+      }
+
+        .btn:active {
+            background-color: #000;
+        }
+
+        .btn:focus {
+            background-color: #000;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            color: #000;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 30px;
+
+             
+        }
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+
+        }
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        h4 {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        h5 {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+        }
+        
+        li{
+            margin-bottom: 10px;
+            
+        }
+        .flex{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex-direction:    row;
+        }
+        .liked{
+            color: green;
+            transform: scale(1.5);
+            animation: bounce 0.5s ease-in-out;
+            transition-duration: 0.5s;
+
+
+
+
+        }
+        .unliked{
+            color: red;
+            transform: scale(1.5);
+            animation: bounce 0.5s ease-in-out;
+            transition-duration: 0.5s;
+
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .counter{
+            margin: 20px;
+            box-shadow: 0 0 10px rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-direction: column;
+            max-width: 200px;
+            margin: auto;
+
+        }
+        .toast{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 300px;
+            margin: auto;
+
+        }
+
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                margin: 0;
+                padding: 20px;
+                margin-bottom: 70px;
+
+            }
+
+            .flex{
+                flex-direction: column;
+                gap: 20px;
+                justify-self: center;
+                align-self: center;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin: auto;
+                margin-top: 20px;
+            }
+            .btn {
+                background-color: rgb(0, 3, 75);
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                font-size: 16px;
+                width: 80%;
+               
+            }
+
+            .counter{
+                margin: 20px 0;
+                box-shadow: 0 0 10px rgb(255, 255, 255);
+                padding: 20px;
+                border-radius: 5px;
+                background-color: #000;
+                color: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                max-width: 200px;
+                margin: auto;
+    
+            }
+
+            .toast{
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 999;
+                background-color: #000;
+                color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                max-width: 300px;
+                margin: auto;
+    
+            }
+
+        }
+    </style>
+    <div id="app"></div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+      const app = document.getElementById('app');
+
+      function Header(props){
+        console.log(props);
+        return (
+            <h1> {props.title}</h1>
+        )
+      }
+      function HomePage(){
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+        const [count, setCount] = React.useState(0);
+        const [like, setLike] = React.useState(false);
+        const [toast, setToast] = React.useState(false);
+        const handleLikes = () => {
+
+            setLike(!like);
+            setToast(!toast);
+            
+
+
+          };
+        const handleOnClick = () => {
+            setCount(count + 1);
+          };
+        return (
+            <>
+            <div className="container">
+                <Header  title="React 💙"/>
+                <p>React is a JavaScript library for building user interfaces. Learn what React is all about on our homepage or in the tutorial.</p>
+            </div>
+           
+            
+            <div className="toast">
+                {
+                    toast ? <div className="toast-container">
+                        <p
+                        style={{
+                            color: like ? 'green' : 'red',
+                        }}
+                        >Thanks for your feedback</p>
+                    </div> : <p> Why not give us a feedback</p>
+                }
+            </div>
+            <div className="container">
+                <h2> Names of Famous Programmers</h2>
+                    <ul>
+                        {names.map((name, index) => (
+                          <li>the name of the programmer is {name} and the index is {index}</li>
+                        ))}
+                      </ul>
+
+                      <div className="counter">
+                            <h2>Counter</h2>
+                            <h3>{count}</h3>
+                        </div>
+
+                     <div className="flex">
+                        <button className="btn" onClick={handleOnClick}>
+                            +
+                          </button>
+                          <button className="btn" onClick={() => setCount(count - 1)}>
+                            - 
+                            </button>
+                            <button className="btn" onClick={() => setCount(0)}>
+                            Reset
+                            </button>
+                            <button className="btn" onClick={handleLikes}> 
+                                {
+                                    like ? <span className="liked">👍</span> : <span className="unliked">👎</span>
+                                }
+                            </button>
+                     </div>
+            </div>
+            </>
+        )
+      }
+      ReactDOM.render(<HomePage />, app);
+    </script>
+  </body>
+</html>
